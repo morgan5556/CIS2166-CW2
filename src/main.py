@@ -30,6 +30,7 @@ def main():
         sentiment = sentiment_analysis(str(row['Review']))
         sentiment_list.append(round(sentiment, 2))
 
+        print("Index: " + str(index) + " Sentiment: " + str(round(sentiment, 2)))
         # Dependent on the sentiment, attaches a boolean to 
         # the list which will be added to the dataframe
         if sentiment > 0:
@@ -56,9 +57,9 @@ def main():
     # Runs the collocation extraction methods, and passess booleans
     # pased on whether or not to POS filter
     print("\nPOSITIVE COLLOCATIONS WITHOUT POS: \n ----------")
-    collocation_extraction(positive_reviews, False)
+    #collocation_extraction(positive_reviews, False)
     print("\nNEGATIVE COLLOCATIONS WITHOUT POS: \n ----------")
-    collocation_extraction(negative_reviews, False)
+    #collocation_extraction(negative_reviews, False)
     print("\nPOSITIVE COLLOCATIONS WITH POS: \n ----------")
     collocation_extraction(positive_reviews, True)
     print("\nNEGATIVE COLLOCATIONS WITH POS: \n ----------")
@@ -91,7 +92,7 @@ def collocation_extraction(reviews, pos_bool):
 
 def pos_tagging_bigram(review, pos_bool):
     # This is the POS tag list, for each of the POS tags we want
-    pos_tag_list = ["NN", "JJ", "NNP", "IN", "VB", "RB", "PRP", "IN", "CC", "DT"]
+    pos_tag_list = ["NN", "JJ", "NNP", "VB"]
 
     # A try statement is used to ensure any errors are passed
     try:
