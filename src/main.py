@@ -57,9 +57,9 @@ def main():
     # Runs the collocation extraction methods, and passess booleans
     # pased on whether or not to POS filter
     print("\nPOSITIVE COLLOCATIONS WITHOUT POS: \n ----------")
-    #collocation_extraction(positive_reviews, False)
+    collocation_extraction(positive_reviews, False)
     print("\nNEGATIVE COLLOCATIONS WITHOUT POS: \n ----------")
-    #collocation_extraction(negative_reviews, False)
+    collocation_extraction(negative_reviews, False)
     print("\nPOSITIVE COLLOCATIONS WITH POS: \n ----------")
     collocation_extraction(positive_reviews, True)
     print("\nNEGATIVE COLLOCATIONS WITH POS: \n ----------")
@@ -132,7 +132,7 @@ def output_bigram_freq():
     # Outputs the top 40 based on frequency
     count = 0
     for bigram in sorted_list:
-        print(bigram, sorted_list[bigram])
+        print(count, bigram, sorted_list[bigram])
         count = count + 1
 
         if count == 40:
